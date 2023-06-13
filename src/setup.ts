@@ -166,12 +166,14 @@ const install = async (archivePath: string, options: SetupOptions) => {
 
 	// Add the CLI binary to the PATH
 	addPath(pathToCLI);
+	info(`Added ${pathToCLI} to the PATH.`);
 };
 
 /**
  * Authenticates the Exoscale CLI.
  */
 const authenticate = async (options: SetupOptions) => {
+	info("Authenticating the Exoscale CLI.")
 	if (!options.authentication || Object.entries(options.authentication ?? {}).some(([, value]) => !value)) {
 		info("Not authenticating the Exoscale CLI as no authentication options were provided.");
 		return;
